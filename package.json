@@ -1,0 +1,36 @@
+{
+    "bin": {
+        "leca": "bin/leca.js"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "mocha": "^3.3.0"
+    },
+    "directories": {},
+    "scripts": {
+        "test": "mocha --recursive"
+    },
+    "name": "leca",
+    "version": "0.0.1",
+    "main": "index.js",
+    "keywords": [
+        "case",
+        "camelCase",
+        "snake_case",
+        "kebab-case",
+        "StUdLyCaPs",
+        "PascalCas",
+        "pothole case"
+    ],
+    "homepage": "https://github.com/YounGoat/ecmascript.leca",
+    "description": "Letter Case Transformer",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/YounGoat/ecmascript.leca.git"
+    },
+    "author": {
+        "name": "YounGoat",
+        "email": "youngoat@163.com",
+        "url": "https://youngoat.github.io"
+    }
+}
