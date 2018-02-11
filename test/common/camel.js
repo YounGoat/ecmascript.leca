@@ -11,14 +11,21 @@ const MODULE_REQUIRE = 1
     , leca = noda.inRequire('index')
     ;
 
-describe('predefined cases', () => {
-    let words = [ 'ching', 'is', 'QUEEN', 'of', 'MINE' ];
+describe('predefined cases: camel', () => {
+    it('format', () => {
+        let words = [ 'ching', 'is', 'QUEEN', 'of', 'MINE' ];
+        let text = 'chingIsQueenOfMine';
+        assert.equal(text, leca.camel.format(words));
+    });
 
-    it('camelCase', () => {
-        assert.equal('chingIsQueenOfMine', leca.camel.format(words));
-        assert.deepEqual([ 'ching', 'is', 'queen', 'of', 'mine' ], leca.camel.parse('chingIsQueenOfMine'));
+    it('parse', () => {
+        let text = 'chingIsQueenOfMine';
+        let words = [ 'ching', 'is', 'queen', 'of', 'mine' ];
+        assert.deepEqual(words, leca.camel.parse(text));
+    });
+
+    it('test', () => {
         assert(leca.camel.test('chingIsQueenOfMine'));
         assert(!leca.camel.test('ching_IsQueenOfMine'));
     });
-    
 });

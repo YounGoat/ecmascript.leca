@@ -85,7 +85,7 @@ class Case {
 			for (let i = 0; i < words.length; i++) {
 				if (options.terms.includes(words[i])) continue;
 				
-				let pw = options.wordParser(words[i]);
+				let pw = options.wordParser(words[i], i);
 				if (invalidFound = (pw === false)) break;
 				else words[i] = pw;
 			}

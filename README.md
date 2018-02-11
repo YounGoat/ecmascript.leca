@@ -113,7 +113,12 @@ Following options may be used in `new leca.Case(options)` to define a letter cas
 ###	Predefined Common Letter Cases
 
 *	__leca.camel__  
-	See [test unit](./test/common/camel.js) for examples.
+	e.g. *camelCase*, *iLoveYou*
+	See [test unit](./test/common/camel.js) for more examples.
+
+*	__leca.sentence__  
+	e.g. *I love you*
+	See [test unit](./test/common/sentence.js) for more examples.
 
 ##  Examples
 
