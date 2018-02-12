@@ -1,6 +1,7 @@
 #	leca
 __Letter Case Transformer__
 
+[![build status of github.com/YounGoat/ecmascript.leca](https://travis-ci.org/YounGoat/ecmascript.leca.svg?branch=master)](https://travis-ci.org/YounGoat/ecmascript.leca)
 [![total downloads of leca](https://img.shields.io/npm/dt/leca.svg)](https://www.npmjs.com/package/leca)
 [![leca's License](https://img.shields.io/npm/l/leca.svg)](https://www.npmjs.com/package/leca)
 [![latest version of leca](https://img.shields.io/npm/v/leca.svg)](https://www.npmjs.com/package/leca)
