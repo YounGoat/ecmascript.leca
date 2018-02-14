@@ -127,6 +127,14 @@ Following options may be used in `new leca.Case(options)` to define a letter cas
 *	Case __leca.sentence.terms__(string | string[] *terms)  
 	Return case instance based on sentence case.
 
+*	Case __leca.snake__  
+	e.g. *i_love_you*  
+	See [test unit](./test/common/snake.js) for more examples.
+
+*	Case __leca.snake.terms__(string | string[] *terms)  
+	Return case instance based on snake_case.
+
+
 ##  Examples
 
 Developers can learn how to create own letter case by __leca__ via unit tests and predefined common letter cases:

@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning 2.0.0](http://semver.org/).
 
+##	[0.0.4] - Feb 15th, 2018
+
+*	Predefined case `leca.snake` added.
+*	Predefined case creator `leca.snake.terms()` added.
+
 ##	[0.0.3] - Feb 14th, 2018
 
 *	Predefined case creator `leca.camel.terms()` added.
