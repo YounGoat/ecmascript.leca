@@ -17,7 +17,9 @@ describe.only('Used as transformer', () => {
 			splitter: /[\s_\-]/,
 			jointer: '-',
             wordFormatter: word => word.toLowerCase(),
-        }); 
+		}); 
+		
+		console.log(ci.reformat('3.0 a simple test'));
     
         assert.equal('foo-bar', ci.reformat('foo BAR'));
 	});
