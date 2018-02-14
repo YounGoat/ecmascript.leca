@@ -34,8 +34,9 @@ class Case {
 		}
 
 		// splitter
-		if (typeof options.splitter != 'string' && !(options.splitter instanceof RegExp)) {
-			throw new Error('Case splitter should be a string or RegExp');
+		if (!['string', 'function'].includes(typeof options.splitter) 
+			&& !(options.splitter instanceof RegExp)) {
+			throw new Error('Case splitter should be a string, function or RegExp');
 		}
 
 		// wordFormatter
@@ -78,7 +79,13 @@ class Case {
 			text = text.slice(0, - options.postfix.length);
 		}
 		
-		let words = text.split(options.splitter);
+		let words;
+		if (typeof options.splitter == 'function') {
+			words = options.splitter(text);
+		} 
+		else {
+			words = text.split(options.splitter);
+		}
 		
 		let invalidFound = false;
 		if (options.wordParser) {

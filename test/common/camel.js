@@ -28,4 +28,12 @@ describe('predefined cases: camel', () => {
         assert(leca.camel.test('chingIsQueenOfMine'));
         assert(!leca.camel.test('ching_IsQueenOfMine'));
     });
+
+    it('terms', () => {
+        let camel = leca.camel.terms('MyMajesty');
+        let text = 'chingIsMyMajesty';
+        let words = [ 'ching', 'is', 'MyMajesty' ];
+        assert.deepEqual(words, camel.parse(text));
+        assert.equal(text, camel.format(words));
+    });
 });
