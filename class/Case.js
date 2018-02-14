@@ -103,6 +103,8 @@ class Case {
 	}
 
 	format(words) {
+		words = Array.prototype.concat.apply([], Array.from(arguments));
+
 		let outputs = [];
 		let options = this.options;
 

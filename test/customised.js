@@ -11,6 +11,17 @@ const MODULE_REQUIRE = 1
     , leca = noda.inRequire('index')
     ;
 
+describe('class Case methods', () => {
+    it('format()', () => {
+        let ci = new leca.Case({
+            jointer: '/',
+            wordFormatter: word => word.toLowerCase(),
+        }); 
+    
+        assert.equal('foo/bar', ci.format('foo', 'BAR'));
+    });
+});
+
 describe('customised cases', () => {
     it('prefix & postfix', () => {
         let ci = new leca.Case({
