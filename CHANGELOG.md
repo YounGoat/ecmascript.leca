@@ -2,11 +2,12 @@
 
 Notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning 2.0.0](http://semver.org/).
 
-##	[to-be-released]
+##	[0.0.7] - Feb 14th, 2018
 
 *	Make `<case>.format()` to accept seperated string arguments beyond a string array.
+*	Sub method `<case>.reformat()` added.
 
-##	[0.0.6] - Feb 15th, 2018
+##	[0.0.6] - Feb 14th, 2018
 
 *	Predefined case `leca.snake` added.
 *	Predefined case creator `leca.snake.terms()` added.

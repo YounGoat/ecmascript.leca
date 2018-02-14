@@ -139,6 +139,11 @@ class Case {
 		
 		return outputs.join('');
 	}
+
+	reformat(text) {
+		let words = this.parse(text);
+		return words ? this.format(words) : false;
+	}
 }
 
 module.exports = Case;

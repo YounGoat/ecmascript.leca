@@ -28,6 +28,9 @@ const leca = require('leca');
 leca.camel.test('camelCase'); 
 // RETURN true
 
+leca.camle.test('camel case');
+// RETURN false
+
 leca.camel.parse('camelCase');
 // RETURN [ "camel", "case" ];
 
@@ -49,9 +52,12 @@ leca.camel.format('Camel', 'CASE');
 	Split *text* into words.  
 	`false` will be returned if *text* doesnot match the case (e.g. doesnot start with __options.prefix__).
 
-*	string | false __\<ci\>.format__(string[] *words*)  
+*	string | false __\<ci\>.format__(string[] *words* | ...*words*)  
 	Combine the words together according to the case format.  
 	`false` will be returned if any word doesnot match the case (depends on __options.wordFormatter__).
+
+*	string | false __\<ci\>.reformat__(string *text*)  
+	Parse the *text* and format the words according to the case's format rule.
 
 <a name="case-constructor-options"></a>
 Following options may be used in `new leca.Case(options)` to define a letter case:
