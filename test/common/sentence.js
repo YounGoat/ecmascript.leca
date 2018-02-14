@@ -39,4 +39,12 @@ describe('predefined case: sentence', () => {
         // Exceeding characters: special character.
         assert(!leca.sentence.test('i _love_ you'));
     });
+
+    it('terms', () => {
+        let sentence = leca.sentence.terms('LOVE');
+        let text = 'I LOVE you';
+        let words = [ 'i', 'LOVE', 'you' ];
+        assert.deepEqual(words, sentence.parse(text));
+        assert.equal(text, sentence.format(words));
+    });
 });
