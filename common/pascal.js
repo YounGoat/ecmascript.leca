@@ -11,13 +11,11 @@ const MODULE_REQUIRE = 1
 	;
 
 function wordFormatter(word, index) {
-	if (index == 0) return word.toLowerCase();
-	else return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+	return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
-function wordParser(word, index) {
-	if (index == 0) return /^[a-z]+$/.test(word) ? word : false;
-	else return /^[A-Z][a-z]*$/.test(word) ? word.toLowerCase() : false;
+function wordParser(word) {
+	return /^[A-Z][a-z]*$/.test(word) ? word.toLowerCase() : false;
 }
 
 const baseOptions = {
@@ -56,8 +54,8 @@ function terms(terms) {
 	return new Case(Object.assign(baseOptions, { terms, splitter }));
 }
 
-const camel = new Case(baseOptions);
+const pascal = new Case(baseOptions);
 
-Object.assign(camel, { terms });
+Object.assign(pascal, { terms });
 
-module.exports = camel;
+module.exports = pascal;

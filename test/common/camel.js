@@ -27,6 +27,9 @@ describe('predefined cases: camel', () => {
     it('test', () => {
         assert(leca.camel.test('chingIsQueenOfMine'));
         assert(!leca.camel.test('ching_IsQueenOfMine'));
+        assert(!leca.camel.test('ChingIsQueenOfMine'));
+        assert(!leca.camel.parse('ching_IsQueenOfMine'));
+        assert(!leca.camel.parse('ChingIsQueenOfMine'));
     });
 
     it('terms', () => {

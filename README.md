@@ -22,6 +22,8 @@ To customise your own letter case transformer.
 
 ##	Get Started
 
+Use pre-defined common case styles:
+
 ```javascript
 const leca = require('leca');
 
@@ -37,6 +39,36 @@ leca.camel.parse('camelCase');
 leca.camel.format('Camel', 'CASE');
 // RETURN "camelCase"
 ```
+
+Or, create your own case style:
+
+```javascript
+const leca = require('leca');
+const myCase = new leca.Case({
+  // Used to split a formatted string.
+  splitter: /(?=[A-Z])/,
+
+  // Used to transform a word on formatting.
+  wordFormatter: (word, index) => {
+    if (index == 0) {
+      return word.toLowerCase();
+    }
+    else {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }
+  },
+
+  // Used to transform a word on parsing.
+  wordParser: (word) => {
+    return /^[a-zA-Z]+$/.test(word) ? word.toLowerCase() : false;
+  }
+});
+myCase.test('camelCase');       // RETURN true
+myCase.test('camel case');      // RETURN false
+myCase.parse('camelCase');      // RETURN [ "camel", "case" ]
+myCase.format('Camel', 'CASE'); // RETURN "camelCase"
+```
+
 
 ##	API
 
