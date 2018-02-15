@@ -156,17 +156,31 @@ Following options may be used in `new leca.Case(options)` to define a letter cas
 	See [test unit](./test/common/camel.js) for more examples.
 
 *	Case __leca.camel.terms__(string | string[] *terms*)  
-	Return case instance based on camelCase.
+	Return case instance based on *camelCase*.
+
+*	Case __leca.kebab__  
+	e.g. *kebab-case*, *i-love-you*  
+	See [test unit](./test/common/kebab.js) for more examples.
+
+*	Case __leca.kebab.terms__(string | string[] *terms)  
+	Return case instance based on *kebab-case*.
+
+*	Case __leca.pascal__  
+	e.g. *PascalCase*, *ILoveYou*  
+	See [test unit](./test/common/pascal.js) for more examples.
+
+*	Case __leca.pascal.terms__(string | string[] *terms)  
+	Return case instance based on *PascalCase*.
 
 *	Case __leca.sentence__  
-	e.g. *I love you*  
+	e.g. *Sentence case*, *I love you*  
 	See [test unit](./test/common/sentence.js) for more examples.
 
 *	Case __leca.sentence.terms__(string | string[] *terms)  
-	Return case instance based on sentence case.
+	Return case instance based on *Sentence case*.
 
 *	Case __leca.snake__  
-	e.g. *i_love_you*  
+	e.g. *snake_case*, *i_love_you*  
 	See [test unit](./test/common/snake.js) for more examples.
 
 *	Case __leca.snake.terms__(string | string[] *terms)  
