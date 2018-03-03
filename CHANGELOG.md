@@ -2,6 +2,14 @@
 
 Notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning 2.0.0](http://semver.org/).
 
+##	[0.0.9] - Mar 3rd, 2018
+
+*	Package main entrance becomes function `leca()`.
+*	In `new leca.Case(options)`, the third parameter `length` is passed into `options.wordFormatter()` and `options.wordParser()`.
+*	Predefined case `leca.bicaps` added.
+*	Predefined case `leca.title` added.
+*	[README.md] improved greatly.
+
 ##	[0.0.8] - Feb 15th, 2018
 
 *	Predefined case `leca.kebab` added.

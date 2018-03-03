@@ -10,5 +10,20 @@ const MODULE_REQUIRE = 1
 	, Case = noda.inRequire('class/Case')
 	;
 
-const leca = Object.assign({ Case }, noda.inRequireDir('common'));
+/**
+ * Find a matching predefined case style.
+ * @param  {string} casename
+ * @return leca.Case
+ */
+function leca(casename) {
+	casename = casename
+		.toLowerCase()
+		.replace(/case$/, '')
+		.replace(/[^a-z]/g, '')
+		;
+	return leca[casename];
+}
+
+Object.assign(leca, { Case }, noda.inRequireDir('common'));
+
 module.exports = leca;

@@ -6,12 +6,14 @@ __Letter Case Transformer__
 [![leca's License](https://img.shields.io/npm/l/leca.svg)](https://www.npmjs.com/package/leca)
 [![latest version of leca](https://img.shields.io/npm/v/leca.svg)](https://www.npmjs.com/package/leca)
 
-To customise your own letter case transformer.
+To define your own letter case style and to deal with text by it. Or, to deal with text with predefined letter case styles.
 
 ##	Table of contents
 
 *	[Get Started](#get-started)
 *	[API](#api)
+	*	[leca.Case](#lecacase)
+	*	[Predefined Common Letter Cases](#predefined-common-letter-cases)
 * 	[Examples](#examples)
 *	[References](#references)
 
@@ -22,7 +24,7 @@ To customise your own letter case transformer.
 
 ##	Get Started
 
-Use pre-defined common case styles:
+Use predefined common case styles:
 
 ```javascript
 const leca = require('leca');
@@ -73,6 +75,8 @@ myCase.format('Camel', 'CASE'); // RETURN "camelCase"
 ##	API
 
 ###	leca.Case
+
+An instance of class `leca.Case` represents a case style.
 
 *	class __leca.Case__(object *options*)  
 	Hereafter use __\<ci\>__ to represent an instance of __leca.Case__. [See below](#case-constructor-options) for details of *options*.
@@ -129,9 +133,10 @@ Following options may be used in `new leca.Case(options)` to define a letter cas
 	/**
 	 * @param {string}  word
 	 * @param {number} [index]
+	 * @param {number} [length] Total count of words
 	 * @return {string}
 	 */
-	function(word, index) {
+	function(word, index, length) {
 		// ...
 	}
 	```
@@ -142,58 +147,80 @@ Following options may be used in `new leca.Case(options)` to define a letter cas
 	```javascript
 	/**
 	 * @param {string}  word
+	 * @param {number} [index]
+	 * @param {number} [length] Total count of words
 	 * @return {string | false}
 	 */
-	function(word) {
+	function(word, index, length) {
 		// ...
 	}
 	```
 
 ###	Predefined Common Letter Cases
 
-*	Case __leca.camel__  
-	e.g. *camelCase*, *iLoveYou*  
-	See [test unit](./test/common/camel.js) for more examples.
+For the convenience of developers, the most frequently-used letter case styles are predefined. Developers may access a predefined case style in form of `leca.<stylename>`, e.g.
+```javascript
+const leca = require('leca');
 
-*	Case __leca.camel.terms__(string | string[] *terms*)  
-	Return case instance based on *camelCase*.
+// Access the predefined case style named "camel".
+const mycase = leca.camel;
 
-*	Case __leca.kebab__  
-	e.g. *kebab-case*, *i-love-you*  
-	See [test unit](./test/common/kebab.js) for more examples.
+// ATTENTION: All predefined style names are lowercase, and there are no 
+// punctuations or word "case" in names. Please DO NOT take the following for 
+// granted:
+leca.Pascal         // undefined
+leca.camelCase      // undefined
+leca['kebab-case']  // undefined
+leca.snake_case     // undefined
 
-*	Case __leca.kebab.terms__(string | string[] *terms)  
-	Return case instance based on *kebab-case*.
+// For those who have some kind of compulsive disorder, or just only wanna make
+// code more comprehensible, invoke `leca()` may be helpful:
+leca('Pascal')     === leca.pascal
+leca('camelCase')  === leca.camel
+leca('kebab-case') === leca.kebab
+leca('snake_case') === leca.snake
+```
 
-*	Case __leca.pascal__  
-	e.g. *PascalCase*, *ILoveYou*  
-	See [test unit](./test/common/pascal.js) for more examples.
+In addition, some (acctually only 1 so far) accompanying methods are offered for each predefined letter case:
 
-*	Case __leca.pascal.terms__(string | string[] *terms)  
-	Return case instance based on *PascalCase*.
+*	Case __leca.\*.terms__(string | string[] *terms*)  
+	Return case instance based on corresponding predfined leca.Case. e.g.
+	```javascript
+	leca.camelCase.terms(['HTTP', 'HTTPS']).parse('myHTTPClient');
+	// RETURN [ "my", "HTTP", "client" ]
+	```
 
-*	Case __leca.sentence__  
-	e.g. *Sentence case*, *I love you*  
-	See [test unit](./test/common/sentence.js) for more examples.
+This is multi-cultural world, and a letter case style will be named differently in different occassions. With respect to more people, __leca__ offers some alias for the foregoing predefined case style. 
 
-*	Case __leca.sentence.terms__(string | string[] *terms)  
-	Return case instance based on *Sentence case*.
+Next table shows aavailable predefined case styles:
 
-*	Case __leca.snake__  
-	e.g. *snake_case*, *i_love_you*  
-	See [test unit](./test/common/snake.js) for more examples.
+| predefined case   | case name        | example        | remark            |
+|:---------------   |:---------        |:-------------- |:----------------- |
+| __leca.bicaps__\* | BiCapitalization | *AltaVista* <br> *eBay* |          | 
+| __leca.camel__    | camelCase        | *iPhone*       |                   |
+| __leca.kebab__    | kebab-case       | *kebab-case*   |                   |
+| __leca.pascal__   | PascalCase       | *PostScript*   |                   |
+| __leca.sentence__ | Sentence case    | *I love you*   |                   |
+| __leca.snake__    | snake_case       | *i_love_you*   |                   |
+| __leca.title__\*  | Title Case       | *I Love Your*  |                   |
 
-*	Case __leca.snake.terms__(string | string[] *terms)  
-	Return case instance based on snake_case.
-
+ATTENTION: __Case postfixed with asterisk \* may be in dispute with its impletation in *leca*. Please BE CAREFUL by yourself when using them.__
 
 ##  Examples
 
 Developers can learn how to create own letter case by __leca__ via unit tests and predefined common letter cases:
 
 *	Test Unit: [customised](./test/customised.js)
+*	Code: [common/bicaps](./common/bicaps.js)
 *	Code: [common/camel](./common/camel.js)
+*	Code: [common/kebab](./common/kebab.js)
+*	Code: [common/pascal](./common/pascal.js)
+*	Code: [common/sentence](./common/sentence.js)
+*	Code: [common/snake](./common/snake.js)
+*	Code: [common/title](./common/title.js)
 
 ##  References
 
 *	WIKIPEDIA: [Letter case](https://en.wikipedia.org/wiki/Letter_case)
+*	[TitleCase](http://titlecase.com), online case converters
+*	[Guidelines for Using Capital Letters](https://www.thoughtco.com/guidelines-for-using-capital-letters-1691724)

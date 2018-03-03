@@ -86,13 +86,13 @@ class Case {
 		else {
 			words = text.split(options.splitter);
 		}
-		
+
 		let invalidFound = false;
 		if (options.wordParser) {
 			for (let i = 0; i < words.length; i++) {
 				if (options.terms.includes(words[i])) continue;
 				
-				let pw = options.wordParser(words[i], i);
+				let pw = options.wordParser(words[i], i, words.length);
 				if (invalidFound = (pw === false)) break;
 				else words[i] = pw;
 			}
@@ -123,7 +123,7 @@ class Case {
 				}
 			}
 			if (options.wordFormatter && !options.terms.includes(words[index])) {
-				let fw = options.wordFormatter(words[index], index);
+				let fw = options.wordFormatter(words[index], index, words.length);
 				if (invalidFound = (fw === false)) break;
 				else outputs.push(fw);
 			}
