@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning 2.0.0](http://semver.org/).
 
+##	[0.0.10] - Mar 4th, 2018
+
+*	Alias `leca.lowercamel` added.
+*	Alias `leca.uppercamel` added.
+
 ##	[0.0.9] - Mar 3rd, 2018
 
 *	Package main entrance becomes function `leca()`.

@@ -8,6 +8,7 @@ const MODULE_REQUIRE = 1
 	
 	/* in-package */
 	, Case = noda.inRequire('class/Case')
+	, alias = noda.inRequire('alias')
 	;
 
 /**
@@ -25,5 +26,9 @@ function leca(casename) {
 }
 
 Object.assign(leca, { Case }, noda.inRequireDir('common'));
+
+for (let name in alias) {
+	leca[name] = leca[ alias[name] ];
+}
 
 module.exports = leca;

@@ -8,6 +8,24 @@ __Letter Case Transformer__
 
 To define your own letter case style and to deal with text by it. Or, to deal with text with predefined letter case styles.
 
+##	Predefined Case Styles
+
+| predefined case        | case name        | example        | remark            |
+|:---------------------- |:---------        |:-------------- |:----------------- |
+| __leca.bicaps__\*      | BiCapitalization | *AltaVista* <br> *eBay* |          | 
+| __leca.camel__         | camelCase        | *missYou*      |                   |
+| __leca.kebab__         | kebab-case       | *i-love-you*   |                   |
+| __leca.lowercamel__    | lowerCamelCase   | *missYou*      | s.a. camelCase 
+| __leca.pascal__        | PascalCase       | *PostScript*   |                   |
+| __leca.sentence__      | Sentence case    | *I love you*   |                   |
+| __leca.snake__         | snake_case       | *i_love_you*   |                   |
+| __leca.title__\*       | Title Case       | *I Love Your*  |                   |
+| __leca.uppercamel__\*  | UpperCamelCase   | *PostScript*   | s.a. PascalCase   |
+
+1. Case postfixed with asterisk \* may be in dispute with its impletation in *leca*. Please __BE CAREFUL__ by yourself when using them.
+1. *s.a.* = the same as 
+1. Because of its arbitrariness and creation, it unable to parse a phrase in StUdLyCaPs.
+
 ##	Table of contents
 
 *	[Get Started](#get-started)
@@ -192,19 +210,7 @@ In addition, some (acctually only 1 so far) accompanying methods are offered for
 
 This is multi-cultural world, and a letter case style will be named differently in different occassions. With respect to more people, __leca__ offers some alias for the foregoing predefined case style. 
 
-Next table shows aavailable predefined case styles:
-
-| predefined case   | case name        | example        | remark            |
-|:---------------   |:---------        |:-------------- |:----------------- |
-| __leca.bicaps__\* | BiCapitalization | *AltaVista* <br> *eBay* |          | 
-| __leca.camel__    | camelCase        | *iPhone*       |                   |
-| __leca.kebab__    | kebab-case       | *kebab-case*   |                   |
-| __leca.pascal__   | PascalCase       | *PostScript*   |                   |
-| __leca.sentence__ | Sentence case    | *I love you*   |                   |
-| __leca.snake__    | snake_case       | *i_love_you*   |                   |
-| __leca.title__\*  | Title Case       | *I Love Your*  |                   |
-
-ATTENTION: __Case postfixed with asterisk \* may be in dispute with its impletation in *leca*. Please BE CAREFUL by yourself when using them.__
+See the table at beginning of this document for available [predefined case styles](#predefined-case-styles).
 
 ##  Examples
 
