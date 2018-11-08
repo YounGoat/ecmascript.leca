@@ -1,4 +1,5 @@
 {
+	"name": "leca",
 	"badges": [
 		"npm.*",
 		"github.travis"

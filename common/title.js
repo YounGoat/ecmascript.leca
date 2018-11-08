@@ -24,7 +24,6 @@ const MODULE_REQUIRE = 1
 		'nor',
 		'so',
 		'yet',
-		
 
 		// prepositions
 		'above',
